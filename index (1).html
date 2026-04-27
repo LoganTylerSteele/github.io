@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Logan Steele — Computer &amp; Electrical Engineer</title>
+<meta name="description" content="Logan Steele — Computer &amp; Electrical Engineering student at Florida Tech, working on safety-critical avionics software and authentication research.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F4F0E8;
+    --bg-alt: #ECE5D5;
+    --ink: #1A1A1A;
+    --ink-soft: #4A4540;
+    --ink-faint: #8A857C;
+    --accent: #B84A1F;
+    --accent-soft: #D9A48F;
+    --line: #C9BFA8;
+    --line-soft: #DDD3BD;
+    --paper: #FBFAF5;
+
+    --font-display: 'Fraunces', Georgia, serif;
+    --font-body: 'Inter', -apple-system, sans-serif;
+    --font-mono: 'IBM Plex Mono', 'Courier New', monospace;
+
+    --maxw: 1180px;
+    --gutter: clamp(1.25rem, 4vw, 3rem);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-body);
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.6;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  /* Subtle paper grain texture */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.4;
+    z-index: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.1 0 0 0 0 0.08 0 0 0 0 0.04 0 0 0 0.05 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  /* ─── NAVIGATION ──────────────────────────────────────── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 1.25rem var(--gutter);
+    background: rgba(244, 240, 232, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.3s ease;
+  }
+  nav.scrolled { border-bottom-color: var(--line-soft); }
+  nav .nav-inner {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+  }
+  nav .logo {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.25rem;
+    letter-spacing: -0.02em;
+    font-style: italic;
+  }
+  nav .logo span { color: var(--accent); }
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  nav ul a {
+    color: var(--ink-soft);
+    transition: color 0.2s ease;
+    position: relative;
+  }
+  nav ul a:hover { color: var(--accent); }
+  nav ul a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px; left: 0;
+    width: 0; height: 1px;
+    background: var(--accent);
+    transition: width 0.3s ease;
+  }
+  nav ul a:hover::after { width: 100%; }
+
+  @media (max-width: 720px) {
+    nav ul { display: none; }
+  }
+
+  /* ─── LAYOUT ──────────────────────────────────────────── */
+  main {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 0 var(--gutter);
+    position: relative;
+    z-index: 1;
+  }
+
+  section {
+    padding: 6rem 0;
+    border-top: 1px solid var(--line-soft);
+  }
+  section:first-of-type { border-top: none; }
+
+  .section-label {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .section-label::before {
+    content: '';
+    width: 24px;
+    height: 1px;
+    background: var(--accent);
+  }
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 3.25rem);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+    margin-bottom: 3rem;
+    font-variation-settings: "opsz" 144, "SOFT" 30;
+  }
+  .section-title em {
+    font-style: italic;
+    color: var(--accent);
+    font-weight: 400;
+  }
+
+  /* ─── HERO ────────────────────────────────────────────── */
+  #hero {
+    padding-top: 9rem;
+    padding-bottom: 6rem;
+    border-top: none;
+    position: relative;
+  }
+
+  .hero-meta {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--ink-faint);
+    margin-bottom: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    align-items: center;
+  }
+  .hero-meta span.dot {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--accent);
+    display: inline-block;
+    animation: pulse 2.5s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.4); }
+  }
+
+  h1.name {
+    font-family: var(--font-display);
+    font-size: clamp(3.25rem, 11vw, 8rem);
+    font-weight: 400;
+    line-height: 0.92;
+    letter-spacing: -0.035em;
+    margin-bottom: 1.5rem;
+    font-variation-settings: "opsz" 144, "SOFT" 50;
+  }
+  h1.name .last {
+    font-style: italic;
+    font-weight: 500;
+    display: inline-block;
+  }
+
+  .hero-tagline {
+    font-family: var(--font-display);
+    font-size: clamp(1.15rem, 2vw, 1.5rem);
+    font-weight: 400;
+    color: var(--ink-soft);
+    max-width: 38ch;
+    margin-bottom: 2.5rem;
+    line-height: 1.45;
+    font-style: italic;
+  }
+  .hero-tagline strong {
+    color: var(--ink);
+    font-style: normal;
+    font-weight: 500;
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 1px;
+  }
+
+  .hero-contact {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 0.5rem;
+    margin-top: 2rem;
+  }
+  .hero-contact a {
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    padding: 0.6rem 1rem;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    color: var(--ink-soft);
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255,255,255,0.3);
+  }
+  .hero-contact a:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: rgba(184, 74, 31, 0.05);
+    transform: translateY(-1px);
+  }
+  .hero-contact a svg { width: 14px; height: 14px; }
+
+  /* Decorative blueprint-style mark */
+  .hero-mark {
+    position: absolute;
+    top: 8rem;
+    right: var(--gutter);
+    width: 180px;
+    height: 180px;
+    opacity: 0.7;
+    pointer-events: none;
+  }
+  @media (max-width: 900px) {
+    .hero-mark {
+      width: 110px; height: 110px;
+      top: 6rem; opacity: 0.45;
+    }
+  }
+
+  /* ─── ABOUT ───────────────────────────────────────────── */
+  #about .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 4rem;
+    align-items: start;
+  }
+  @media (max-width: 800px) {
+    #about .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+  }
+  #about .about-grid > .section-label { margin-bottom: 0; padding-top: 0.4rem; }
+  #about p {
+    font-family: var(--font-display);
+    font-size: clamp(1.35rem, 2.4vw, 1.85rem);
+    font-weight: 400;
+    line-height: 1.4;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+  #about p + p { margin-top: 1.5rem; }
+  #about p em {
+    font-style: italic;
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  /* ─── EXPERIENCE ──────────────────────────────────────── */
+  .experience-item {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 3rem;
+    padding: 2.5rem 0;
+    border-top: 1px solid var(--line-soft);
+    transition: border-color 0.3s ease;
+  }
+  .experience-item:first-child { border-top: none; padding-top: 0; }
+  .experience-item:hover { border-top-color: var(--line); }
+
+  @media (max-width: 720px) {
+    .experience-item {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+  }
+
+  .exp-meta {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-faint);
+    line-height: 1.7;
+  }
+  .exp-meta .year {
+    color: var(--accent);
+    font-weight: 500;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+  .exp-content h3 {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 2.6vw, 2rem);
+    font-weight: 500;
+    letter-spacing: -0.015em;
+    margin-bottom: 0.4rem;
+    line-height: 1.2;
+  }
+  .exp-company {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--ink-soft);
+    margin-bottom: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  .exp-company .place {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--ink-faint);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .exp-company .place::before { content: '— '; }
+  .exp-content ul {
+    list-style: none;
+    padding: 0;
+  }
+  .exp-content li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.85rem;
+    color: var(--ink-soft);
+    font-size: 0.98rem;
+    line-height: 1.65;
+  }
+  .exp-content li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--accent);
+    font-family: var(--font-mono);
+    font-weight: 500;
+  }
+
+  /* ─── EDUCATION ───────────────────────────────────────── */
+  .edu-card {
+    background: var(--paper);
+    border: 1px solid var(--line-soft);
+    border-radius: 4px;
+    padding: 2.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .edu-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 4px; height: 100%;
+    background: var(--accent);
+  }
+  .edu-card h3 {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 2.6vw, 2rem);
+    font-weight: 500;
+    letter-spacing: -0.015em;
+    line-height: 1.2;
+    margin-bottom: 0.4rem;
+  }
+  .edu-meta {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ink-faint);
+    margin-bottom: 2rem;
+  }
+  .edu-meta .gpa {
+    color: var(--accent);
+    font-weight: 500;
+  }
+  .edu-degrees {
+    display: grid;
+    gap: 1rem;
+  }
+  .edu-degree {
+    padding: 1rem 0;
+    border-top: 1px solid var(--line-soft);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+  }
+  .edu-degree:first-child { border-top: none; padding-top: 0; }
+  .edu-degree .degree-name {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-style: italic;
+    font-weight: 500;
+  }
+  .edu-degree .degree-type {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ink-faint);
+    white-space: nowrap;
+  }
+
+  /* ─── PROJECTS ────────────────────────────────────────── */
+  .project-card {
+    background: var(--paper);
+    border: 1px solid var(--line-soft);
+    border-radius: 4px;
+    padding: 2.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .project-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 4px; height: 100%;
+    background: var(--accent);
+  }
+  .project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  .project-name {
+    font-family: var(--font-display);
+    font-size: clamp(1.7rem, 3vw, 2.4rem);
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    line-height: 1.05;
+  }
+  .project-status {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    padding: 0.2rem 0.6rem;
+    border-radius: 2px;
+    white-space: nowrap;
+  }
+  .project-tagline {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 1.15rem;
+    color: var(--ink-faint);
+    margin-bottom: 2rem;
+  }
+  .project-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1.25rem;
+    padding: 1.5rem 0;
+    margin: 1rem 0 2rem 0;
+    border-top: 1px solid var(--line-soft);
+    border-bottom: 1px solid var(--line-soft);
+  }
+  .project-stat {
+    text-align: left;
+  }
+  .project-stat .num {
+    font-family: var(--font-display);
+    font-size: clamp(1.6rem, 3vw, 2rem);
+    font-weight: 500;
+    line-height: 1;
+    color: var(--accent);
+    display: block;
+  }
+  .project-stat .label {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-faint);
+    margin-top: 0.4rem;
+    line-height: 1.3;
+  }
+  .project-body p {
+    margin-bottom: 1rem;
+  }
+  .project-body p:last-of-type { margin-bottom: 0; }
+  .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--line-soft);
+  }
+  .project-tags span {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 0.3rem 0.7rem;
+    border: 1px solid var(--line-soft);
+    border-radius: 2px;
+    color: var(--ink);
+  }
+  .project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid var(--accent);
+    padding-bottom: 2px;
+    transition: opacity 0.15s ease;
+  }
+  .project-link:hover { opacity: 0.7; }
+
+  /* ─── SKILLS ──────────────────────────────────────────── */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+  }
+  .skill-cat h4 {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--accent);
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--line-soft);
+  }
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .skill-tags span {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    padding: 0.4rem 0.85rem;
+    background: var(--paper);
+    border: 1px solid var(--line-soft);
+    border-radius: 3px;
+    color: var(--ink-soft);
+    transition: all 0.2s ease;
+  }
+  .skill-tags span:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    transform: translateY(-1px);
+  }
+
+  /* ─── AWARDS / EXTRAS ─────────────────────────────────── */
+  .awards-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+  }
+  @media (max-width: 720px) {
+    .awards-grid { grid-template-columns: 1fr; gap: 3rem; }
+  }
+  .awards-list {
+    list-style: none;
+  }
+  .awards-list li {
+    padding: 1.1rem 0;
+    border-top: 1px solid var(--line-soft);
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1.25rem;
+    align-items: baseline;
+  }
+  .awards-list li:first-child { border-top: none; padding-top: 0; }
+  .awards-list .num {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--ink-faint);
+  }
+  .awards-list .title-text {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-style: italic;
+    font-weight: 400;
+  }
+  .awards-list .sub {
+    display: block;
+    font-family: var(--font-body);
+    font-style: normal;
+    font-size: 0.88rem;
+    color: var(--ink-faint);
+    margin-top: 0.2rem;
+  }
+
+  .extras h4 {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-style: italic;
+    font-weight: 500;
+    margin-bottom: 0.4rem;
+  }
+  .extras .role {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    margin-bottom: 1rem;
+  }
+  .extras p {
+    color: var(--ink-soft);
+    font-size: 0.98rem;
+    line-height: 1.65;
+  }
+
+  /* ─── FOOTER ──────────────────────────────────────────── */
+  footer {
+    border-top: 1px solid var(--line-soft);
+    margin-top: 4rem;
+    padding: 4rem var(--gutter) 3rem;
+    background: var(--bg-alt);
+    position: relative;
+    z-index: 1;
+  }
+  .footer-inner {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 2rem;
+    align-items: end;
+  }
+  @media (max-width: 720px) {
+    .footer-inner { grid-template-columns: 1fr; }
+  }
+  .footer-inner h2 {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 400;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.5rem;
+  }
+  .footer-inner h2 em {
+    font-style: italic;
+    color: var(--accent);
+    font-weight: 500;
+  }
+  .footer-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 0.9rem 1.5rem;
+    background: var(--ink);
+    color: var(--paper);
+    border-radius: 999px;
+    transition: all 0.2s ease;
+  }
+  .footer-cta:hover {
+    background: var(--accent);
+    transform: translateY(-1px);
+  }
+  .footer-meta {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--line-soft);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-faint);
+  }
+
+  /* ─── ENTRANCE ANIMATIONS ─────────────────────────────── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .stagger > * {
+    opacity: 0;
+    transform: translateY(15px);
+    animation: rise 0.8s ease forwards;
+  }
+  .stagger > *:nth-child(1) { animation-delay: 0.1s; }
+  .stagger > *:nth-child(2) { animation-delay: 0.25s; }
+  .stagger > *:nth-child(3) { animation-delay: 0.4s; }
+  .stagger > *:nth-child(4) { animation-delay: 0.55s; }
+  .stagger > *:nth-child(5) { animation-delay: 0.7s; }
+  @keyframes rise {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ─── PRINT STYLES ────────────────────────────────────── */
+  @media print {
+    nav, footer, .hero-mark, body::before { display: none !important; }
+    body { background: white; color: black; }
+    section { padding: 1.5rem 0; page-break-inside: avoid; }
+    #hero { padding-top: 0; }
+    h1.name { font-size: 2.5rem; }
+    .section-title { font-size: 1.5rem; margin-bottom: 1rem; }
+    a { color: black !important; }
+  }
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="#hero" class="logo">L<span>S</span>.</a>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Work</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#projects">Project</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+
+  <!-- ─── HERO ─── -->
+  <section id="hero">
+    <svg class="hero-mark" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <circle cx="100" cy="100" r="80" stroke="#B84A1F" stroke-width="0.6" stroke-dasharray="2 3"/>
+      <circle cx="100" cy="100" r="55" stroke="#B84A1F" stroke-width="0.6"/>
+      <circle cx="100" cy="100" r="30" stroke="#1A1A1A" stroke-width="0.8"/>
+      <line x1="100" y1="10" x2="100" y2="190" stroke="#B84A1F" stroke-width="0.4" stroke-dasharray="1 2"/>
+      <line x1="10" y1="100" x2="190" y2="100" stroke="#B84A1F" stroke-width="0.4" stroke-dasharray="1 2"/>
+      <text x="100" y="103" font-family="IBM Plex Mono, monospace" font-size="6" fill="#1A1A1A" text-anchor="middle">N 28°04'</text>
+      <text x="100" y="113" font-family="IBM Plex Mono, monospace" font-size="6" fill="#1A1A1A" text-anchor="middle">W 80°37'</text>
+      <text x="100" y="20" font-family="IBM Plex Mono, monospace" font-size="5" fill="#B84A1F" text-anchor="middle">N</text>
+    </svg>
+
+    <div class="stagger">
+      <div class="hero-meta">
+        <span class="dot"></span>
+        <span>Available May 2026</span>
+        <span>·</span>
+        <span>Melbourne, FL</span>
+      </div>
+
+      <h1 class="name">Logan<br><span class="last">Steele</span></h1>
+
+      <p class="hero-tagline">
+        Computer &amp; Electrical engineering student building <strong>safety-critical software</strong> for avionics and researching <strong>secure distributed systems</strong>.
+      </p>
+
+      <div class="hero-contact">
+        <a href="mailto:lsteele8154@gmail.com">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          lsteele8154@gmail.com
+        </a>
+        <a href="tel:+17037744445">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+          (703) 774-4445
+        </a>
+        <a href="https://www.linkedin.com/in/logan-steele-8a9248277/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 110-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+          LinkedIn
+        </a>
+        <a href="https://github.com/YOUR-GITHUB-USERNAME" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.5 2.87 8.32 6.84 9.67.5.09.68-.22.68-.49 0-.24-.01-.87-.01-1.71-2.78.62-3.37-1.36-3.37-1.36-.46-1.18-1.11-1.5-1.11-1.5-.91-.63.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.55-1.14-4.55-5.06 0-1.12.39-2.03 1.03-2.74-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05A9.4 9.4 0 0112 6.92c.85.004 1.71.12 2.51.34 1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.71 1.03 1.62 1.03 2.74 0 3.93-2.34 4.79-4.57 5.05.36.32.68.94.68 1.9 0 1.37-.01 2.48-.01 2.81 0 .27.18.59.69.49C19.14 20.57 22 16.74 22 12.25 22 6.58 17.52 2 12 2z"/></svg>
+          GitHub
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── ABOUT ─── -->
+  <section id="about">
+    <div class="about-grid">
+      <div class="section-label">01 / About</div>
+      <div>
+        <p>
+          Currently pursuing dual B.S. degrees in <em>Computer Engineering</em> and <em>Electrical Engineering</em> at Florida Tech, where the line between hardware and software is exactly where I like to work.
+        </p>
+        <p>
+          At <em>Avidyne</em>, I write and certify software that flies — DO-178 work where every requirement, every test, and every line of code has to hold up to FAA scrutiny. On the research side, I'm building service-to-service authentication on top of distributed systems like Hadoop and Accumulo.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── EXPERIENCE ─── -->
+  <section id="experience">
+    <div class="section-label">02 / Experience</div>
+    <h2 class="section-title">Where I've <em>worked</em>.</h2>
+
+    <div class="experience-item">
+      <div class="exp-meta">
+        <span class="year">Jun 2025 — Present</span>
+        Software Engineering<br>Intern
+      </div>
+      <div class="exp-content">
+        <h3>Avidyne Corporation</h3>
+        <div class="exp-company">Avionics &amp; Flight Systems <span class="place">Melbourne, FL</span></div>
+        <ul>
+          <li>Execute DO-178 certification tasks across the full lifecycle: requirement development in IBM DOORS, test implementation, code reviews via Crucible &amp; JIRA, and code-coverage analysis for safety-critical avionics software.</li>
+          <li>Develop and integrate software for cockpit and flight systems, working alongside systems and support engineers to advance flight technologies.</li>
+          <li>Designed automated testing frameworks in C++ and .NET, improving validation efficiency and supporting FAA certification compliance.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="experience-item">
+      <div class="exp-meta">
+        <span class="year">Feb 2025 — Present</span>
+        Undergraduate<br>Research Assistant
+      </div>
+      <div class="exp-content">
+        <h3>Florida Institute of Technology</h3>
+        <div class="exp-company">Distributed Systems Research <span class="place">Melbourne, FL</span></div>
+        <ul>
+          <li>Built a proof of concept for service-to-service authentication using ZooKeeper, Hadoop, Accumulo, WildFly, Maven, and DataWave.</li>
+          <li>Implemented mTLS, ABAC policies, and JWT authentication inside containerized Linux environments.</li>
+          <li>Authored technical documentation that captures architecture decisions and guides future scalability of the system.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── EDUCATION ─── -->
+  <section id="education">
+    <div class="section-label">03 / Education</div>
+    <h2 class="section-title">Two degrees, <em>one bench</em>.</h2>
+
+    <div class="edu-card">
+      <h3>Florida Institute of Technology</h3>
+      <div class="edu-meta">
+        Aug 2022 — May 2026 (Expected) <span class="gpa">· 3.6 GPA</span> · Melbourne, FL
+      </div>
+      <div class="edu-degrees">
+        <div class="edu-degree">
+          <div class="degree-name">Computer Engineering</div>
+          <div class="degree-type">B.S.</div>
+        </div>
+        <div class="edu-degree">
+          <div class="degree-name">Electrical Engineering</div>
+          <div class="degree-type">B.S.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── PROJECTS ─── -->
+  <section id="projects">
+    <div class="section-label">04 / Project</div>
+    <h2 class="section-title">Building it <em>right</em>, in public.</h2>
+
+    <div class="project-card">
+      <div class="project-header">
+        <h3 class="project-name">KESTREL</h3>
+        <span class="project-status">In Development · 2026 →</span>
+      </div>
+      <div class="project-tagline">A verifiably-safe open-source flight controller.</div>
+
+      <div class="project-stats">
+        <div class="project-stat">
+          <span class="num">7</span>
+          <div class="label">Verified flight modules</div>
+        </div>
+        <div class="project-stat">
+          <span class="num">157</span>
+          <div class="label">Logical assertions, all passing</div>
+        </div>
+        <div class="project-stat">
+          <span class="num">67</span>
+          <div class="label">Requirements, end-to-end traced</div>
+        </div>
+        <div class="project-stat">
+          <span class="num">4</span>
+          <div class="label">MC/DC-scoped decisions</div>
+        </div>
+        <div class="project-stat">
+          <span class="num">8</span>
+          <div class="label">Process deviations recorded</div>
+        </div>
+      </div>
+
+      <div class="project-body">
+        <p>An end-to-end quadcopter flight controller — hardware, firmware, and ground software — built under DO-178C–shaped process discipline. The differentiator is not the controller itself; it is the public set of certification-pattern artifacts wrapped around it: PSAC, SDP, SVP, SCMP, SQAP; system / high-level / low-level requirements with full bidirectional traceability; structural coverage instrumentation including selective MC/DC on the four flight-critical decisions; an honest deviation log; a hazard analysis with severity / likelihood matrix; and a STRIDE threat model for the secure C2 link.</p>
+
+        <p>Working code includes a bare-metal cooperative scheduler, arming monitor, failsafe manager, mode manager, Mahony attitude estimator, rate PID controller with clamping anti-windup, and an X-quad motor mixer. Each compiles strict-clean under <code>-Wall -Wextra -Werror -Wpedantic -Wconversion -Wshadow</code>; each is unit-tested with explicit MC/DC truth tables where the requirement demands it. A custom Python tool walks the repository, extracts <code>@impl</code> tags and test names, and builds the traceability matrix on every push.</p>
+
+        <p>The project pulls together my Avidyne work (DO-178 cert tasks, IBM DOORS, automated C++ testing) and my distributed-systems research (mTLS / ABAC / JWT) into a single artifact set targeted at aerospace / defense recruiters. Apache-2.0 and CERN-OHL-S-2.0 licensed.</p>
+      </div>
+
+      <div class="project-tags">
+        <span>C++20</span><span>STM32H7</span><span>arm-none-eabi</span><span>CMake</span><span>Python</span><span>GoogleTest</span><span>gcov / lcov</span><span>DO-178C</span><span>MC/DC</span><span>STRIDE</span><span>GitHub Actions</span>
+      </div>
+
+      <a href="https://github.com/YOUR-GITHUB-USERNAME/kestrel" target="_blank" rel="noopener" class="project-link">
+        View source on GitHub →
+      </a>
+    </div>
+  </section>
+
+  <!-- ─── SKILLS ─── -->
+  <section id="skills">
+    <div class="section-label">05 / Skills</div>
+    <h2 class="section-title">The <em>toolkit</em>.</h2>
+
+    <div class="skills-grid">
+      <div class="skill-cat">
+        <h4>Languages</h4>
+        <div class="skill-tags">
+          <span>C++</span><span>Python</span><span>Java</span><span>DXL</span>
+        </div>
+      </div>
+      <div class="skill-cat">
+        <h4>Software &amp; Tools</h4>
+        <div class="skill-tags">
+          <span>IBM DOORS</span><span>Jira</span><span>Crucible</span><span>Perforce</span><span>Visual Studio</span><span>Arduino IDE</span><span>OptiSystem</span><span>Beyond Compare</span><span>MOART</span><span>AutoCAD</span><span>MS Office</span>
+        </div>
+      </div>
+      <div class="skill-cat">
+        <h4>Processes</h4>
+        <div class="skill-tags">
+          <span>Agile</span><span>Testing</span><span>Debugging</span><span>Scripting</span><span>DO-178</span><span>Code Review</span>
+        </div>
+      </div>
+      <div class="skill-cat">
+        <h4>Distributed &amp; Security</h4>
+        <div class="skill-tags">
+          <span>Hadoop</span><span>Accumulo</span><span>ZooKeeper</span><span>WildFly</span><span>DataWave</span><span>mTLS</span><span>ABAC</span><span>JWT</span><span>Containers / Linux</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── AWARDS / EXTRAS ─── -->
+  <section id="awards">
+    <div class="awards-grid">
+      <div>
+        <div class="section-label">06 / Recognition</div>
+        <h2 class="section-title" style="margin-bottom:2rem;">Awards.</h2>
+        <ul class="awards-list">
+          <li>
+            <span class="num">i.</span>
+            <span class="title-text">
+              Panther Fund Scouting Scholar
+              <span class="sub">Awarded as an Eagle Scout</span>
+            </span>
+          </li>
+          <li>
+            <span class="num">ii.</span>
+            <span class="title-text">
+              Dean's List
+              <span class="sub">Spring 2024</span>
+            </span>
+          </li>
+          <li>
+            <span class="num">iii.</span>
+            <span class="title-text">
+              National Honor Society
+              <span class="sub">Member</span>
+            </span>
+          </li>
+        </ul>
+      </div>
+      <div class="extras">
+        <div class="section-label">07 / Beyond the bench</div>
+        <h2 class="section-title" style="margin-bottom:2rem;">Off-hours.</h2>
+        <h4>Delta Tau Delta — Iota Xi Chapter</h4>
+        <div class="role">Honor Board Representative · Fall 2024 — Present</div>
+        <p>
+          Investigate and adjudicate alleged violations of chapter bylaws, rules, and regulations — applying due process to organizational governance.
+        </p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer id="contact">
+  <div class="footer-inner">
+    <div>
+      <h2>Let's <em>build</em><br>something.</h2>
+      <p style="font-family:var(--font-mono);font-size:0.85rem;color:var(--ink-soft);text-transform:uppercase;letter-spacing:0.1em;">
+        Open to full-time roles starting May 2026
+      </p>
+    </div>
+    <a class="footer-cta" href="mailto:lsteele8154@gmail.com">
+      Get in touch
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12,5 19,12 12,19"/></svg>
+    </a>
+  </div>
+  <div style="max-width:var(--maxw);margin:0 auto;">
+    <div class="footer-meta">
+      <span>© 2026 Logan Steele</span>
+      <span>Designed &amp; engineered with care</span>
+      <a href="javascript:window.print()" style="color:var(--accent);">Print / Save as PDF</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Sticky nav border on scroll
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 12);
+  });
+
+  // Reveal-on-scroll for sections beyond the hero
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('is-visible');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('section').forEach((s, i) => {
+    if (i === 0) return; // skip hero (already animated via stagger)
+    s.classList.add('reveal');
+    io.observe(s);
+  });
+</script>
+
+</body>
+</html>
